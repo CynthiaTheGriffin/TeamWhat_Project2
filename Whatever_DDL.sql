@@ -24,7 +24,7 @@ CREATE TABLE employee (
 CREATE TABLE prize (
     prize_id TEXT NOT NULL PRIMARY KEY,
     prize_name TEXT NOT NULL,
-    cost INT
+    cost INT -- Cost in tickets
 );
 
 CREATE TABLE game (
