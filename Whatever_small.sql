@@ -1,1 +1,1 @@
--- Populate database with small examples
+-- Populate database with small example
