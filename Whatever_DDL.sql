@@ -1,13 +1,13 @@
 -- Instantiate database
-IF EXISTS DROP TABLE player;
-IF EXISTS DROP TABLE employee;
-IF EXISTS DROP TABLE prize;
-IF EXISTS DROP TABLE game;
-IF EXISTS DROP TABLE machine;
-IF EXISTS DROP TABLE purchase_history;
-IF EXISTS DROP TABLE credit_history;
-IF EXISTS DROP TABLE play_history
-IF EXISTS DROP TABLE maintenance_history
+DROP TABLE IF EXISTS player;
+DROP TABLE IF EXISTS employee;
+DROP TABLE IF EXISTS prize;
+DROP TABLE IF EXISTS game;
+DROP TABLE IF EXISTS machine;
+DROP TABLE IF EXISTS purchase_history;
+DROP TABLE IF EXISTS credit_history;
+DROP TABLE IF EXISTS play_history;
+DROP TABLE IF EXISTS maintenance_history;
 
 CREATE TABLE player (
     player_id TEXT NOT NULL,
