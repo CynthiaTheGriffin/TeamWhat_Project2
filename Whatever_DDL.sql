@@ -10,35 +10,35 @@ DROP TABLE IF EXISTS employee;
 DROP TABLE IF EXISTS game;
 
 CREATE TABLE player (
-    player_id TEXT NOT NULL,
+    player_id TEXT NOT NULL CHECK(LENGTH(player_id)=5),
     player_name TEXT NOT NULL,
     credit_balance DECIMAL(10,2),
     PRIMARY KEY (player_id)
 );
 
 CREATE TABLE employee (
-    employee_id TEXT NOT NULL,
+    employee_id TEXT NOT NULL CHECK(LENGTH(employee_id)=5),
     employee_name TEXT NOT NULL,
     position TEXT NOT NULL,
     PRIMARY KEY (employee_id)
 );
 
 CREATE TABLE prize (
-    prize_id TEXT NOT NULL,
+    prize_id TEXT NOT NULL CHECK(LENGTH(prize_id)=5),
     prize_name TEXT NOT NULL,
     cost INT, -- Cost in tickets
     PRIMARY KEY (prize_id)
 );
 
 CREATE TABLE game (
-    game_id TEXT NOT NULL,
+    game_id TEXT NOT NULL CHECK(LENGTH(game_id)=5),
     game_name TEXT NOT NULL,
     cost DECIMAL(4,2),
     PRIMARY KEY (game_id)
 );
 
 CREATE TABLE machine (
-    machine_id TEXT NOT NULL,
+    machine_id TEXT NOT NULL CHECK(LENGTH(machine_id)=5),
     game_id TEXT NOT NULL,
     condition TEXT NOT NULL,
     PRIMARY KEY (machine_id),
