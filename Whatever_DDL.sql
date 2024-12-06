@@ -12,7 +12,6 @@ DROP TABLE IF EXISTS game;
 CREATE TABLE player (
     player_id TEXT NOT NULL CHECK(LENGTH(player_id)=5),
     player_name TEXT NOT NULL,
-    credit_balance DECIMAL(10,2),
     PRIMARY KEY (player_id)
 );
 
@@ -40,7 +39,7 @@ CREATE TABLE game (
 CREATE TABLE machine (
     machine_id TEXT NOT NULL CHECK(LENGTH(machine_id)=5),
     game_id TEXT NOT NULL,
-    condition TEXT NOT NULL,
+    condition TEXT NOT NULL CHECK(condition IN ('running', 'out of service')),
     PRIMARY KEY (machine_id),
     FOREIGN KEY (game_id) REFERENCES game(game_id)
 );
@@ -49,7 +48,7 @@ CREATE TABLE purchase_history (
     player_id TEXT NOT NULL,
     time_stamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     prize_id TEXT NOT NULL,
-    quantity INT,
+    quantity INT CHECK(quantity > 0),
     PRIMARY KEY (player_id, time_stamp),
     FOREIGN KEY (player_id) REFERENCES player(player_id),
     FOREIGN KEY (prize_id) REFERENCES prize(prize_id)
